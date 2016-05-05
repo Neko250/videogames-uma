@@ -1,4 +1,4 @@
-package blocksGame;
+package com.github.neko250.videogames.blocks;
 
 import javax.media.j3d.BranchGroup;
 import java.util.Iterator;

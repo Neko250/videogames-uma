@@ -1,4 +1,4 @@
-package blocksGame;
+package com.github.neko250.videogames.blocks;
 
 import com.sun.j3d.utils.behaviors.interpolators.RotPosScaleTCBSplinePathInterpolator;
 import com.sun.j3d.utils.behaviors.interpolators.TCBKeyFrame;

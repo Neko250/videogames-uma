@@ -1,4 +1,4 @@
-package blocksGame;
+package com.github.neko250.videogames.blocks;
 
 public class Level {
     private Blocks blocks = new Blocks();

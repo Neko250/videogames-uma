@@ -1,4 +1,4 @@
-package com.github.neko250.videogames;
+package com.github.neko250.videogames.pong;
 
 import javax.media.j3d.BackgroundSound;
 import javax.media.j3d.BoundingSphere;

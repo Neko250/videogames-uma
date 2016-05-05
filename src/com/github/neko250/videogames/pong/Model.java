@@ -1,4 +1,4 @@
-package com.github.neko250.videogames;
+package com.github.neko250.videogames.pong;
 
 import static com.sun.javafx.util.Utils.clamp;
 

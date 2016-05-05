@@ -1,4 +1,4 @@
-package com.github.neko250.videogames;
+package com.github.neko250.videogames.pong;
 
 import com.sun.j3d.utils.applet.MainFrame;
 

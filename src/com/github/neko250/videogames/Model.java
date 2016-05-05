@@ -16,6 +16,8 @@ public class Model {
     private double x[] = new double[2];
     private double y[] = new double[2];
 
+    // public Audio audio = new Audio();
+
     public void setKey(int key, boolean value) {
         if (key >= 0 && key <= 3) {
             keys[key] = value;
@@ -38,20 +40,28 @@ public class Model {
             hitWithPad(0, -limit);
         if (ballZ > limit && collisionWithPad(1))
             hitWithPad(1, limit);
-        if (ballZ < -limit - 0.2) state = 1;
-        if (ballZ > limit + 0.2) state = 2;
+
+        if (ballZ < -limit - 0.2) {
+            state = 1;
+            // audio.stopMusic();
+        }
+
+        if (ballZ > limit + 0.2) {
+            state = 2;
+            // audio.stopMusic();
+        }
 
         // ================
         // Pads
-        double speed = 0.2;
+        double speed = 0.032;
         double dx = 0;
         double dy = 0;
 
         // Adversary
         if (Math.abs(ballX - x[0]) > 0.1)
-            dx = speed * Math.signum(ballX - x[0]);
+            dx = speed * Math.signum(ballX - x[0]) * 0.8f;
         if (Math.abs(ballY - y[0]) > 0.1)
-            dy = speed * Math.signum(ballY - y[0]);
+            dy = speed * Math.signum(ballY - y[0]) * 0.8f;
 
         movePad(0, dx, dy);
 
@@ -73,17 +83,19 @@ public class Model {
     private void hitWithPad(int pad, double limit) {
         ballZ = limit;
         dz *= -1;
-        dx = ballX - x[pad];
-        dy = ballY - y[pad];
+        dx = (ballX - x[pad]) / 6.25;
+        dy = (ballY - y[pad]) / 6.25;
+        // audio.playHit();
     }
 
     public void startGame() {
-        dz = -0.1;
-        dx = Math.random() * 0.2 - 0.1;
-        dy = Math.random() * 0.2 - 0.1;
+        dz = -0.016;
+        dx = Math.random() * 0.032 - 0.016;
+        dy = Math.random() * 0.032 - 0.016;
         x[0] = y[0] = x[1] = y[1] = 0;
         ballX = ballY = ballZ = 0;
         state = 0;
+        // audio.playMusic();
     }
 
     private void movePad(int pos, double dx, double dy) {

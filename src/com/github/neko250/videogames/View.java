@@ -77,13 +77,14 @@ public class View extends Applet implements Runnable {
         BranchGroup bg = new BranchGroup();
         mainTG.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
         bg.addChild(mainTG);
-        mainTG.addChild(Figures.getField());
-        mainTG.addChild(adversaryTG = Figures.getAdversary());
-        mainTG.addChild(ballTG = Figures.getBall());
+
+        mainTG.addChild(Figures.getField(this));
+        mainTG.addChild(adversaryTG = Figures.getAdversary(this));
+        mainTG.addChild(ballTG = Figures.getBall(this));
         mainTG.addChild(Figures.getLight());
 
-        bg.addChild(winTG = Figures.getText("You Win !"));
-        bg.addChild(loseTG = Figures.getText("You lose..."));
+        bg.addChild(winTG = Figures.getText("Fuck yeah !"));
+        bg.addChild(loseTG = Figures.getText("Loooser..."));
 
         return bg;
     }
@@ -92,7 +93,7 @@ public class View extends Applet implements Runnable {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(100);
+                Thread.sleep(16);
                 model.move();
                 position();
 
